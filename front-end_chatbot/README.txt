@@ -1,0 +1,3 @@
+在本地能运行gpt4all的编译器上运行chatbot
+用readChatbotCache的接口进行输入输出
+记得改CACHE_PATH

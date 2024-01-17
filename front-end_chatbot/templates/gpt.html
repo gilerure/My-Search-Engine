@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Contact Us</title>
+<link href="{{ url_for('static', filename='style2.css') }}" rel="stylesheet" type="text/css" media="screen">
+<style>
+    .contact-info {
+        text-align: center;
+        padding: 20px;
+    }
+    .contact-info h2 {
+        margin-bottom: 10px;
+    }
+    .contact-info p {
+        margin: 5px 0;
+    }
+</style>
+</head>
+<body>
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">Brand</a></li>
+            <li><a href="/contact">Kinds</a></li>
+        </ul>
+    </div>
+    <div id="search">
+		<form id="searchform" method="get" action="/result">
+			<fieldset>
+			<input id="s" type="text" name="keyword" value="" class="text">
+			<input id="x" type="submit" value="Search" class="button">
+			</fieldset>
+		</form>
+	</div>
+</div>
+<div id="logo">
+</div>
+<hr />
+<div id="pageBrand">
+    <div id="contentBrand">
+        <div class="post">
+            <h1 class="title">Kinds</h1>
+            <div class="kinds-contrainer">
+                <!-- Contact info start -->
+                <h1>GPT's recommend for your question</h1>
+                    <ul>
+                        <li><a href="{{ url_for('result', keyword=command[0]) }}" style="font-size: 2em;" target="_blank">{{command[0]}}</a></li>
+                        <li><a href="{{ url_for('result', keyword=command[1]) }}" style="font-size: 2em;" target="_blank">{{command[1]}}</a></li>
+                        <li><a href="{{ url_for('result', keyword=command[2]) }}" style="font-size: 2em;" target="_blank">{{command[2]}}</a></li>
+                        <li><a href="{{ url_for('result', keyword=command[3]) }}" style="font-size: 2em;" target="_blank">{{command[3]}}</a></li>
+                        <li><a href="{{ url_for('result', keyword=command[4]) }}" style="font-size: 2em;" target="_blank">{{command[4]}}</a></li>
+                    </ul>
+                <!-- Contact info end -->
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;">&nbsp;</div>
+</div>
+<hr />
+<div id="footer">
+    <p>Copyright &copy; Year All Rights Reserved. Designed by [Something].</p>
+</div>
+</body>
+</html>

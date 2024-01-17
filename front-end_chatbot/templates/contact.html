@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Contact Us</title>
+<link href="{{ url_for('static', filename='style2.css') }}" rel="stylesheet" type="text/css" media="screen">
+<style>
+    .contact-info {
+        text-align: center;
+        padding: 20px;
+    }
+    .contact-info h2 {
+        margin-bottom: 10px;
+    }
+    .contact-info p {
+        margin: 5px 0;
+    }
+</style>
+</head>
+<body>
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">Brand</a></li>
+            <li class="current_page_item"><a href="/contact">Kinds</a></li>
+        </ul>
+    </div>
+    <div id="search">
+		<form id="searchform" method="get" action="/result">
+			<fieldset>
+			<input id="s" type="text" name="keyword" value="" class="text">
+			<input id="x" type="submit" value="Search" class="button">
+			</fieldset>
+		</form>
+	</div>
+    
+</div>
+<div id="logo">
+</div>
+<hr />
+<div id="pageBrand">
+    <div id="contentBrand">
+        <div class="post">
+            <h1 class="title">Kinds</h1>
+            <div id="search-g">
+                <form id="searchform" method="get" action="/gpt">
+                    <fieldset>
+                    <input id="s-g" type="text" name="question" value="" class="text">
+                    <input id="x-g" type="submit" value="Ask GPT For Advice" class="button">
+                    </fieldset>
+                </form>
+            </div>
+            <h1>Kinds of Clothes</h1>
+            <div class="kinds-container">
+                <!-- Contact info start -->
+                        <div class="kind-item">
+                            <a href="{{ url_for('result', keyword='男') }}">
+                                <img src="{{ url_for('static', filename='images/men.jpg') }}" alt='男' title = '男装'>
+                            </a>
+                        </div>
+                        <div class="kind-item">
+                            <a href="{{ url_for('result', keyword='女') }}">
+                                <img src="{{ url_for('static', filename='images/women.jpg') }}" alt='女' title = '女装'>
+                        </a>
+                        </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='童') }}">
+                                    <img src="{{ url_for('static', filename='images/kid.jpg') }}" alt='童' title = '童装'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='睡衣') }}">
+                                    <img src="{{ url_for('static', filename='images/睡衣.webp') }}" alt='睡衣' title = '睡衣'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='内衣') }}">
+                                    <img src="{{ url_for('static', filename='images/内衣.jpg') }}" alt='内衣' title = '内衣'>
+                                </a>
+                            </div>
+            </div>
+            <h1>Hot selling clothes</h1>
+            <div class="kinds-container">
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='卫衣') }}">
+                                    <img src="{{ url_for('static', filename='images/卫衣.jpg') }}" alt='卫衣' title = '卫衣'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='羽绒服') }}">
+                                    <img src="{{ url_for('static', filename='images/羽绒服.jpg') }}" alt='羽绒服' title = '羽绒服'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='毛衣') }}">
+                                    <img src="{{ url_for('static', filename='images/毛衣.webp') }}" alt='毛衣' title = '毛衣'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='夹克') }}">
+                                    <img src="{{ url_for('static', filename='images/夹克.jpg') }}" alt='夹克' title = '夹克'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='风衣') }}">
+                                    <img src="{{ url_for('static', filename='images/风衣.jpg') }}" alt='风衣' title = '风衣'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='袜子') }}">
+                                    <img src="{{ url_for('static', filename='images/袜子.jpg') }}" alt='袜子' title = '袜子'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='T恤') }}">
+                                    <img src="{{ url_for('static', filename='images/T恤.jpg') }}"alt='T恤' title = 'T恤'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='短裤') }}">
+                                    <img src="{{ url_for('static', filename='images/短裤.jpg') }}" alt='短裤' title = '短裤'>
+                                </a>
+                            </div>
+                            <div class="kind-item">
+                                <a href="{{ url_for('result', keyword='马甲') }}">
+                                    <img src="{{ url_for('static', filename='images/马甲.webp') }}" alt='马甲' title = '马甲'>
+                                </a>
+                            </div>
+                <!-- Contact info end -->
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;">&nbsp;</div>
+</div>
+<hr />
+<div id="footer">
+    <p>Copyright &copy; Year All Rights Reserved. Designed by [Something].</p>
+</div>
+</body>
+</html>

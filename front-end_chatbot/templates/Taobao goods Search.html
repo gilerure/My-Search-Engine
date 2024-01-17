@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Taobao goods Search</title>
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+
+<!-- start header -->
+<div id="header">
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="/home">Home</a></li>
+			<li><a href="/about">Brand</a></li>
+			<li><a href="/contact">Kinds</a></li>
+		</ul>
+	</div>
+	<div id="search">
+		<form id="searchform" method="get" action="/result">
+			<fieldset>
+			<input id="s" type="text" name="keyword" value="" class="text">
+			<input id="x" type="submit" value="Search" class="button">
+			</fieldset>
+		</form>
+	</div>
+</div>
+<div id="logo">
+</div>
+<!-- end header -->
+<hr>
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<!-- end content -->
+	<!-- start sidebar one -->
+	<div id="sidebar1" class="sidebar">
+	</div>
+	<!-- end sidebar one -->
+	<!-- start sidebar two -->
+	<div id="sidebar2" class="sidebar">
+	</div>
+	<!-- end sidebar two -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+<hr>
+<!-- start footer -->
+<div id="footer">
+	<p>Copyright &copy; Year All Rights Reserved. Designed by [Something].</p>
+</div>
+<!-- end footer -->
+
+ 
+</body></html>

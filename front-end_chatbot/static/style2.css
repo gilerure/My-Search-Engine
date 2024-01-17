@@ -1,0 +1,707 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+	background: url('3.png') no-repeat center center fixed;
+	background-size: cover;
+	animation: backgroundChange 30s infinite alternate;
+  }
+
+
+@keyframes backgroundChange {
+    0% {
+      background: url('3.png') no-repeat center center fixed;
+    }
+    25% {
+      background: url('7.png') no-repeat center center fixed;
+    }
+    50% {
+      background: url('5.png') no-repeat center center fixed;
+    }
+    75% {
+      background: url('6.png') no-repeat center center fixed;
+    }
+    100% {
+      background: url('3.png') no-repeat center center fixed;
+    }
+}
+
+.search-results {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    animation: fadeIn 2s forwards;
+}
+  
+@keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+}
+
+body, th, td, input, textarea {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666666;
+}
+
+form {
+}
+
+fieldset {
+}
+
+input, textarea {
+	font-weight: bold;
+}
+
+input.text {
+	padding: 2px 5px;
+	background: #F8FAEB;
+	border-top: 1px solid #4D5719;
+	border-left: 1px solid #4D5719;
+	border-right: 1px solid #626456;
+	border-bottom: 1px solid #626456;
+}
+
+input.button {
+	background: #3C7BCF;
+	border-top: 1px solid #3C7BCF;
+	border-left: 1px solid #3C7BCF;
+	border-right: 1px solid #3C7BCF;
+	border-bottom: 1px solid #3C7BCF;
+	color: #FFFFFF;
+}
+.button-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 3px; /* 增加顶部间距 */
+  }
+  
+.button {
+	display: inline-block;
+  }
+
+.button a {
+    padding: 10px;
+    margin: 30px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    cursor: pointer;
+	font-size: 2em;
+}
+
+.button a:hover {
+    background-color: #e7e7e7;
+}
+
+h1, h2, h3 {
+	margin-top: 1.5em;
+	color: #626456;
+}
+
+h1 {
+	letter-spacing: -.075em;
+	font-size: 3em;
+}
+
+h2 {
+	letter-spacing: -.05em;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #8D8E85;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+p, ul, ol {
+	margin-top: 1.5em;
+	line-height: 1.8em;
+	font-size: 1.1em;
+}
+
+ul, ol {
+	margin-left: 3em;
+}
+
+blockquote {
+	margin-left: 3em;
+	margin-right: 3em;
+}
+
+a {
+	text-decoration: none;
+	color: #3C7BCF;
+}
+
+a:hover {
+	border: none;
+	text-decoration: underline;
+}
+
+h1 a, h2 a, h3 a {
+	border: none;
+	text-decoration: none;
+	color: #626456;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover {
+	background: none;
+	color: #3C7BCF;
+}
+
+hr {
+	display: none;
+}
+
+/* Wrapper */
+
+#wrapper {
+}
+
+/* Header */
+
+#header {
+	width: 980px;
+	height: 55px;
+	margin: 0 auto;
+}
+
+#menu {
+	float: left;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: left;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	height: 25px;
+	margin-right: 1px;
+	padding: 10px 20px 0 20px;
+	text-decoration: none;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #8C8F7D;
+}
+
+#menu a:hover {
+	background:  #F3F3F3;
+	color: #2C2E22;
+}
+
+#menu .current_page_item a {
+	background:  #F3F3F3;
+	color: #2C2E22;
+}
+
+#search {
+	float:right;
+	width: 300px;
+	padding-top: 10px;
+	box-sizing: border-box; /* Make sure padding is included in the width */
+	position: relative; /* To position the button inside */
+  }
+  
+  #search fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+	display: flex; /* Use flexbox for alignment */
+	align-items: center; /* Align items vertically */
+  }
+
+  #search-g {
+	float:left;
+	width: 800px;
+	padding-top: 10px;
+	box-sizing: border-box; /* Make sure padding is included in the width */
+	position: relative; /* To position the button inside */
+  }
+  
+  #search-g fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+	display: flex; /* Use flexbox for alignment */
+	align-items: center; /* Align items vertically */
+  }
+  
+  /* Style for the input field */
+  #search #s {
+	width: calc(100% - 120px - 0.5rem); /* Subtract button width and a small gap */
+	height: 40px; /* Set a fixed height for the input */
+	border: 1px solid #cccccc; /* Set a border for the input */
+	padding: 0.5rem;
+	font-size: 1rem; /* Set font size */
+	box-sizing: border-box;
+	border-radius: 0.5rem 0 0 0.5rem; /* Round the left corners */
+	outline: none; /* Remove the outline on focus */
+  }
+
+  #search-g #s-g {
+	width: calc(300% - 120px - 0.5rem); /* Subtract button width and a small gap */
+	height: 40px; /* Set a fixed height for the input */
+	border: 1px solid #cccccc; /* Set a border for the input */
+	padding: 0.5rem;
+	font-size: 1rem; /* Set font size */
+	box-sizing: border-box;
+	border-radius: 0.5rem 0 0 0.5rem; /* Round the left corners */
+	outline: none; /* Remove the outline on focus */
+  }
+
+  
+  /* Style for the search button */
+  #search #x {
+	width: 120px;
+	height: 42px; /* Ensure it's the same height as the input field (+ border) */
+	background-color: #007bff; /* A pleasing blue */
+	border: none; /* No border */
+	color: white; /* White text */
+	font-size: 1rem;
+	cursor: pointer; /* Change cursor to pointer on hover */
+	outline: none; /* Remove the outline */
+	border-radius: 0 0.5rem 0.5rem 0; /* Round the right corners */
+	transition: transform 0.2s; /* Smooth transform on hover */
+  }
+
+  #search-g #x-g {
+	width: 240px;
+	height: 42px; /* Ensure it's the same height as the input field (+ border) */
+	background-color: #007bff; /* A pleasing blue */
+	border: none; /* No border */
+	color: white; /* White text */
+	font-size: 1rem;
+	cursor: pointer; /* Change cursor to pointer on hover */
+	outline: none; /* Remove the outline */
+	border-radius: 0 0.5rem 0.5rem 0; /* Round the right corners */
+	transition: transform 0.2s; /* Smooth transform on hover */
+  }
+  
+  /* Hover effect for the button */
+  #search #x:hover {
+	transform: scale(1.05); /* Scale up the button slightly */
+  }
+
+  #search-g #x-g:hover {
+	transform: scale(1.05); /* Scale up the button slightly */
+  }
+
+/* Logo */
+
+#logo {
+	width: 978px;
+	margin: 0 auto;
+	background: url(logo.png) no-repeat left top;
+	height: 300px;
+	border: 20px solid #F3F3F3;
+}
+
+#logo h1, #logo h2 {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+#logo h1 {
+	padding: 100px 5px 0 20px;
+	color: #2C2E22;
+}
+
+#logo h2 {
+	padding: 115px 0 0 0;
+	font-style: italic;
+}
+
+#logo p {
+	clear: left;
+	margin: 0;
+	padding: 0 0 0 20px;
+	line-height: normal;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #C2C5B1;
+}
+
+#logo a {
+	color: #F3F3F3;
+}
+
+/* Page */
+
+#page {
+    width: 1600px; /* Make the page width 100% of the viewport */
+	height:max-content;
+    margin: 0 auto;
+    padding: 0;
+    border: 20px solid #F3F3F3;
+    background: #FFFFFF;
+}
+
+#pageBrand {
+    width: 978px; /* Make the page width 100% of the viewport */
+	height:max-content;
+    margin: 0 auto;
+    padding: 0;
+    border: 20px solid #F3F3F3;
+    background: #FFFFFF;
+}
+
+/* Content */
+
+#content {
+	width: 1600px; /* Adjusted the width to fit the entire #page width minus the padding */
+	padding: 30px; /* Add padding for better text readability */
+	text-overflow: elipsis;
+}
+
+#contentBrand {
+	width: 978px; /* Adjusted the width to fit the entire #page width minus the padding */
+	padding: 30px; /* Add padding for better text readability */
+	text-overflow: elipsis;
+}
+
+.entryBrand {
+	max-width: 900px;
+}
+
+.kinds-container{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 15px;
+	padding-top: 50px;
+	max-width: 950px;
+}
+
+.kinds-contrainer ul li{
+	padding-top: 20px;
+}
+  
+.kind-item {
+	flex: 0 0 285px;
+	max-width:300px;
+	text-align: center;
+	position: relative; /* 添加这个属性以设置hover效果 */
+  }
+  
+  .kind-item a {
+	display: block;
+  }
+  
+  .kind-item img {
+	max-width: 300px;
+	max-height: 300px;
+	width: auto;
+	height: 100%;
+	transition: transform 0.3s ease; /* 添加过渡效果 */
+  }
+  
+  .kind-item:hover img {
+	transform: scale(1.1); /* 鼠标悬停时放大图片 */
+	display: block; /* 鼠标悬停时显示提示框 */
+  }  
+
+  .kind-item img::after {
+    content: attr(title); /* 使用属性的内容作为提示框的文本 */
+    position: absolute;
+    left: 0;
+    padding: 5px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    white-space: normal; /* 显示完整内容 */
+    max-width: 300px; /* 设置最大宽度 */
+    display: none; /* 默认隐藏提示框 */
+}
+
+.post {
+}
+
+.post .title {
+	margin: 0;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+}
+
+.post h1.title {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 30px;
+	height: 80px;
+	font-size: 4.8em;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	max-width: 1500px;
+}
+
+.post h1.name {
+	padding: 10px 0  0 10px;
+	height: 80px;
+	font-size: 3em;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	max-width: 1500px;
+}
+
+.post .entry{
+	padding: 0px 10px 30px 15px;
+    font-size: 20px;
+	max-width: 1500px;
+}
+
+.post .entry h3{
+	padding: 20px 0px 0px 0px;
+    font-size: 15px;
+	max-width: 120px;
+	display: block;
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis;
+	position: relative;
+}
+
+
+/* 鼠标悬停时显示提示框 */
+.post .entry h2 a:hover::after {
+    display: block; /* 鼠标悬停时显示提示框 */
+}
+
+
+.post .entry-contact-info{
+	padding: 0 10px 20px 15px;
+    font-size: 30px;
+}
+
+.post .entry-contact-info .title{
+	padding-left: 220px;
+}
+
+.post .entry img{
+	float: right;
+	padding: 10px;
+}
+
+
+.post .meta {
+	margin: 0;
+	padding: 5px 0px 0px 15px;
+	background: url(images/img04.gif) repeat-x left bottom;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	color: hsl(0, 0%, 81%);
+}
+
+.post .meta a {
+	color: #CFCFCF;
+}
+
+.post .links {
+	margin: 0;
+}
+
+.post .tags {
+	margin: 0;
+	text-transform: uppercase;
+	font-size: .8em;
+	font-weight: bold;
+	background: url(images/img04.gif) repeat-x;
+}
+
+.post .links a, .post .tags a {
+	border: none;
+}
+
+/* Recent Posts */
+
+#recent-posts {
+}
+
+#recent-posts h2 {
+	margin: 0;
+	background: url(images/img13.gif) no-repeat left top;
+	padding: 15px 0  0 15px;
+	height: 20px;
+}
+
+#recent-posts h3 {
+	margin: 0;
+	font-size: 13px;
+	padding: 15px 0  0 15px;
+	background: url(images/img04.gif) repeat-x left bottom;
+}
+
+#recent-posts p {
+	margin: 0 0 10px 0;
+	padding: 15px 0  0 15px;
+	line-height: 22px;
+	font-size: 13px;
+}
+
+
+
+/* Calendar */
+
+#calendar {
+	margin: 0 auto;
+}
+
+#calendar caption {
+	font-weight: bold;
+}
+
+#calendar table {
+	width: 220px;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+#calendar thead th {
+	background: #CCCCCC;
+	color: #FFFFFF;
+}
+
+#calendar tbody td {
+	background: #EEEEEE;
+}
+
+#calendar #today {
+	background: #B8D03B;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#calendar a {
+	font-weight: bold;
+}
+
+#calendar #prev {
+	text-align: left;
+}
+
+#calendar #next {
+	text-align: right;
+}
+
+/* Footer */
+
+#footer {
+	text-align: center;
+	font-size: 9px;
+}
+
+.pagination-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px; /* 增加顶部间距 */
+  }
+  
+  .pagination {
+	display: inline-block;
+  }
+  
+  .pagination a {
+	color: black;
+	float: left;
+	padding: 10px 20px; /* 调整内边距 */
+	text-decoration: none;
+	transition: background-color .3s;
+	font-size: 18px; /* 修改字体大小 */
+  }
+  
+  .pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+  }
+  
+  .pagination a:hover:not(.active) {
+	background-color: #ddd;
+  }
+
+  .product-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 15px;
+	padding-top: 50px;
+	max-width: 1550px;
+  }
+  
+  .product-item {
+	flex: 0 0 285px;
+	max-width:300px;
+	text-align: center;
+	position: relative; /* 添加这个属性以设置hover效果 */
+  }
+
+  .product-item h3 {
+	flex: 0 0 285px;
+	text-align: center;
+	font-size: 1em;
+	margin: 0.5em 0;
+	max-width: 120px; /* 添加这个属性以设置hover效果 */
+	white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis;
+  }
+  
+  .product-item a {
+	display: block;
+  }
+  
+  .product-item img {
+	width: 100%;
+	height: 100%;
+	transition: transform 0.3s ease; /* 添加过渡效果 */
+  }
+  
+  .product-item:hover img {
+	transform: scale(1.1); /* 鼠标悬停时放大图片 */
+	display: block; /* 鼠标悬停时显示提示框 */
+  }  
+
+  .product-item img::after {
+    content: attr(title); /* 使用属性的内容作为提示框的文本 */
+    position: absolute;
+    left: 0;
+    padding: 5px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    white-space: normal; /* 显示完整内容 */
+    max-width: 300px; /* 设置最大宽度 */
+    display: none; /* 默认隐藏提示框 */
+}
+
+
+  
+  .product-item p {
+	font-size: 0.8em;
+	color: grey;
+	line-height: 1.5;
+	margin-top: 3px;
+	margin-bottom: 3px;
+  }
+  
+  .price {
+	font-size: 1em;
+	color: black;
+  }

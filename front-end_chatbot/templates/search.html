@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Taobao goods Search Results</title>
+<meta name="keywords" content="search, results">
+<meta name="description" content="Search results page">
+<link href=" {{ url_for('static', filename='style2.css') }}" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+
+<div id="dynamic-background"></div>
+
+<!-- start header -->
+<div id="header">
+	<div id="menu">
+		<ul>
+			<li><a href="/home">Home</a></li>
+			<li><a href="/about">Brand</a></li>
+			<li><a href="/contact">Kinds</a></li>
+		</ul>
+	</div>
+	<div id="search">
+		<form id="searchform" method="get" action="/result">
+			<fieldset>
+			<input id="s" type="text" name="keyword" value="" class="text">
+			<input id="x" type="submit" value="Search" class="button">
+			</fieldset>
+		</form>
+	</div>
+</div>
+<div id="logo">
+</div>
+<!-- end header -->
+<hr />
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post">
+			<h1 class="title">Search Results</h1>
+			<h1 class="name">排序方式</h1>
+			<div class = "button-container">
+				<div class="button"> 
+					<a href="{{ url_for('result', keyword=keyword, method = 1, page = 1) }}">Search Score</a>
+					<a href="{{ url_for('result', keyword=keyword, method = 2, page = 1) }}">Pos Rate</a>
+					<a href="{{ url_for('result', keyword=keyword, method = 3, page = 1) }}">Comprehensive Score</a>
+					<a href="{{ url_for('result', keyword=keyword, method = 4, page = 1) }}">Price</a>
+				</div>
+			</div>
+			<h1 class="name">价格区间</h1>
+			<div class = "button-container">
+				<div class="button"> 
+					<a href="{{ url_for('result', keyword=keyword, method = method, page = 1, price1 = 0, price2 = 150) }}">0-150</a>
+					<a href="{{ url_for('result', keyword=keyword, method = method, page = 1, price1 = 151, price2 = 250) }}">151-250</a>
+					<a href="{{ url_for('result', keyword=keyword, method = method, page = 1, price1 = 251, price2 = 350) }}">251-350</a>
+					<a href="{{ url_for('result', keyword=keyword, method = method, page = 1, price1 = 351, price2 = 1000) }}">>350</a>
+					<a href="{{ url_for('result', keyword=keyword, method = method, page = 1) }}">reset</a>
+				</div>
+			</div>
+			<form action="/result" method="POST">
+				<div class="dropdown-check-list" tabindex="100">
+				<span class="anchor">选择品牌</span>
+				<ul class="items">
+				<div>
+					<input type="checkbox" id="brand1" name="brands" value='安踏（ANTA）'>
+					<label for="brand1">安踏（ANTA）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand2" name="brands" value='真维斯（Jeanswest）'>
+					<label for="brand2">真维斯（Jeanswest）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand3" name="brands" value='李宁（LI-NING）'>
+					<label for="brand3">李宁（LI-NING）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand4" name="brands" value="南极人（Nanjiren）">
+					<label for="brand4">南极人（Nanjiren）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand5" name="brands" value="森马（Semir）">
+					<label for="brand5">森马（Semir）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand6" name="brands" value="花花公子（PLAYBOY）">
+					<label for="brand6">花花公子（PLAYBOY）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand7" name="brands" value="吉普（JEEP）">
+					<label for="brand7">吉普（JEEP）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand8" name="brands" value="鸿星尔克（ERKE）">
+					<label for="brand4">鸿星尔克（ERKE）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand9" name="brands" value="稻草人（MEXICAN）">
+					<label for="brand9">稻草人（MEXICAN）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand10" name="brands" value="海澜之家（HLA）">
+					<label for="brand10">海澜之家（HLA）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand11" name="brands" value="啄木鸟（TUCANO）">
+					<label for="brand11">啄木鸟（TUCANO）</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand12" name="brands" value="NASALIKE">
+					<label for="brand12">NASALIKE</label>
+				</div>
+				<div>
+					<input type="checkbox" id="brand13" name="brands" value="GENIOLAMODE">
+					<label for="brand13">GENIOLAMODE</label>
+				</div>
+				</ul>
+        		</div>
+				<input type="hidden" name="keyword" value= "{{keyword}}" class='text'>
+				<!-- 重复以上内容，为每个品牌添加复选框 -->
+				<input type="submit" value="确定">
+				
+			</form>
+
+			<div class = "entry">
+			<h2 style="color:purple;">Displaying {{ total_results }} results for your search for {{ keyword }} sorted by {{name[method-1]}} :</h2>
+				<!-- List of search results start -->
+			<div class="product-container">
+				{% for i in range(0,length)%}
+				<div class="product-item">
+					<a href="{{u[i]}}" target="_blank">
+						<img src={{img[i]}} alt={{t[i]}} title = "{{t[i]}}">
+					</a>
+				    <p>商品名称<p>
+					<p><strong></strong>{{t[i]}}</strong></p>
+				    <p>品牌&nbsp;:&nbsp;{{brand[i]}}</p>
+					<p>好评率&nbsp;:&nbsp;{{pos[i]}}</p>
+					<p class="price">综合评价指数&nbsp;:&nbsp;{{com[i]}}</p>
+				    <p class="price">价格&nbsp;:&nbsp;{{p[i]}}</p>
+				</div>
+				{%endfor%}
+			</div>
+				<br/>
+				<br/>
+				<!-- More search results can be added here -->
+			</div>
+		</div>
+	</div>
+	<!-- end content -->
+	<!-- start sidebar one -->
+	<div id="sidebar1" class="sidebar">
+		<ul>
+			<!-- Sidebar content can be added here, for example, recent searches or related searches -->
+		</ul>
+	</div>
+	<!-- end sidebar one -->
+	<!-- start sidebar two -->
+	<div id="sidebar2" class="sidebar">
+		<ul>
+			<!-- Additional sidebar content can be added here -->
+		</ul>
+	</div>
+	<!-- end sidebar two -->
+	<div class="pagination-container">
+	<div class="pagination">
+		{% if page > 1 %}
+		<a href="{{ url_for('result', keyword=keyword, method=method, page=page-1, price1 = price[0], price2 = price[1]) }}">&laquo;</a>
+		{% endif %}
+		
+		{% for p in range(1, total_pages + 1) %}
+		  {% if p == page %}
+			<a class="active">{{ p }}</a>
+		  {% else %}
+			<a href="{{ url_for('result', keyword=keyword, method=method, page=p, price1 = price[0], price2 = price[1]) }}">{{ p }}</a>
+		  {% endif %}
+		{% endfor %}
+		
+		{% if page < total_pages %}
+		<a href="{{ url_for('result', keyword=keyword, method=method, page=page+1, price1 = price[0], price2 = price[1]) }}">&raquo;</a>
+		{% endif %}
+	</div>
+	</div>
+	
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+<hr />
+<!-- start footer -->
+<div id="footer">
+	<p>Copyright &copy; Year All Rights Reserved. Designed by [Something].</p>
+</div>
+<!-- end footer -->
+</body>
+</html>

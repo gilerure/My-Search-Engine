@@ -1,0 +1,13 @@
+基于logo的图像检索文件search_by_logo.py分为四大部分：
+classification函数用于分类爬虫数据，按照品牌名将txt文件归类到不同文件夹中。
+MyCBIR类通过pytorch机器学习的方式比较两张图片的相似度。
+MySIFT函数通过sift描述子特征检测和FLANN匹配器计算两张图片的匹配程度。
+最后的logo_detection函数遍历文件夹中的logo图片，通过以上两种算法与用户输入的图片进行对比，得到最佳匹配品牌极其五十个商品信息。
+整个程序的运行只需要调用logo_detection函数，该函数的输入参数为用户输入的logo图片和文件夹"search/newData"（默认）。
+
+基于商品图片的图像检索文件search_by_picture.py运行只需要调用picture_detection函数，
+传入的参数值为用户输入的商品图片和文件夹"search/newData"（默认），
+返回的结果是50个匹配的商品信息。
+
+该压缩包里的logo.jpg到logo4.jpg是模拟用户输入的logo测试图片，input.jpg是模拟用户输入的商品测试图片
+newData文件夹中每个子品牌文件夹里有一张该品牌的logo图片，是用于图片比对的。

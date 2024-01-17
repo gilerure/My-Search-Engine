@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Taobao goods Search Results</title>
+<meta name="keywords" content="search, results">
+<meta name="description" content="Search results page">
+<link href=" {{ url_for('static', filename='style2.css') }}" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+
+<div id="dynamic-background"></div>
+
+<!-- start header -->
+<div id="header">
+	<div id="menu">
+		<ul>
+			<li><a href="/home">Home</a></li>
+			<li><a href="/about">Brand</a></li>
+			<li><a href="/contact">Kinds</a></li>
+		</ul>
+	</div>
+	<div id="search">
+		<form id="searchform" method="get" action="/result">
+			<fieldset>
+			<input id="s" type="text" name="keyword" value="" class="text">
+			<input id="x" type="submit" value="Search" class="button">
+			</fieldset>
+		</form>
+	</div>
+</div>
+<div id="logo">
+</div>
+<!-- end header -->
+<hr />
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post">
+			<h1 class="title">Search Results</h1>
+
+			<div class = "entry">
+				<h2 style="color:purple;">Reupload your picture :</h2>
+				<form method="POST" action="/pic" enctype="multipart/form-data">
+					<input type="file" name="image" accept="image/*">
+					<input type="submit" value="上传图片">
+				</form>
+			<h2 style="color:purple;">Displaying {{ length }} results for your search:</h2>
+				<!-- List of search results start -->
+			<div class="product-container">
+				{% for i in range(0,length)%}
+				<div class="product-item">
+					<a href="{{u[i]}}" target="_blank">
+						<img src={{img[i]}} alt={{t[i]}} title = "{{t[i]}}">
+					</a>
+				    <p>商品名称<p>
+					<p><strong></strong>{{t[i]}}</strong></p>
+				    <p>品牌&nbsp;:&nbsp;{{brand[i]}}</p>
+					<p>好评率&nbsp;:&nbsp;{{pos[i]}}</p>
+					<p class="price">综合评价指数&nbsp;:&nbsp;{{com[i]}}</p>
+				    <p class="price">价格&nbsp;:&nbsp;{{p[i]}}</p>
+				</div>
+				{%endfor%}
+			</div>
+				<br/>
+				<br/>
+				<!-- More search results can be added here -->
+			</div>
+		</div>
+	</div>
+	<!-- end content -->
+	<!-- start sidebar one -->
+	<div id="sidebar1" class="sidebar">
+		<ul>
+			<!-- Sidebar content can be added here, for example, recent searches or related searches -->
+		</ul>
+	</div>
+	<!-- end sidebar one -->
+	<!-- start sidebar two -->
+	<div id="sidebar2" class="sidebar">
+		<ul>
+			<!-- Additional sidebar content can be added here -->
+		</ul>
+	</div>
+	<!-- end sidebar two -->
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+<hr />
+<!-- start footer -->
+<div id="footer">
+	<p>Copyright &copy; Year All Rights Reserved. Designed by [Something].</p>
+</div>
+<!-- end footer -->
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>About Us</title>
+<link href="{{ url_for('static', filename='style2.css') }}" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+<div id="header">
+	<div id="menu">
+		<ul>
+			<li><a href="/home">Home</a></li>
+			<li class="current_page_item"><a href="/about">Brand</a></li>
+			<li><a href="/contact">Kinds</a></li>
+		</ul>
+	</div>
+	<div id="search">
+		<form id="searchform" method="get" action="/result">
+			<fieldset>
+			<input id="s" type="text" name="keyword" value="" class="text">
+			<input id="x" type="submit" value="Search" class="button">
+			</fieldset>
+		</form>
+	</div>
+</div>
+<div id="logo">
+</div>
+<hr />
+<div id="pageBrand">
+	<div id="contentBrand">
+		<div class="post">
+			<h1 class="title">Brand</h1>
+			<div class="entryBrand">
+				<h1>logo搜索</h1>
+				<form method="POST" action="/logo" enctype="multipart/form-data">
+					<input type="file" name="image" accept="image/*">
+					<input type="submit" value="上传图片">
+				</form>
+				<h1>以图搜图</h1>
+				<form method="POST" action="/pic" enctype="multipart/form-data">
+					<input type="file" name="image" accept="image/*">
+					<input type="submit" value="上传图片">
+				</form>
+				<h1 class="name">常见品牌推荐</h1>
+						<ul>
+							<li>
+								<h2><a href="{{ url_for('result', keyword='李宁') }}">李宁</a></h2>
+								<p>李宁，是“体操王子”李宁在1990年创立的专业体育品牌。
+									李宁公司拥有完善的品牌营销、研发、设计、制造、经销及销售能力，以经营李宁品牌专业及休闲运动鞋、服装、器材和配件产品为主，已在中国建立庞大的零售分销网络和供应链管理体系。 <a href="https://www.lining.com/">More...</a></p>
+							</li>
+							<li>
+								<h2><a href="{{ url_for('result', keyword='ANTA') }}">ANTA</a></h3>
+								<p>'安踏始创于一九九一年，而安踏体育用品有限公司（股份代号：2020（港币柜台）及82020（人民币柜台））在二零零七年于香港交易所主板上市，是着名的全球体育用品公司。多年来，安踏体育主要从事设计、研发、制造、营销和销售体育用品，向消费者提供专业的体育用品，包括运动鞋、服装及配饰。透过多元化的品牌组合，包括安踏、FILA、DESCENTE及KOLON SPORT，以及组成投资者财团于二零一九年成功收购国际运动品牌集团Amer Sports，拥有国际认可品牌包括Arc’teryx、Salomon、Wilson、Peak Performance、Atomic等。安踏体育旨在发掘大众及高端体育用品市场的潜力。' <a href="https://ir.anta.com/">More...</a></p>
+							</li>
+							<li>
+								<h2><a href="{{ url_for('result', keyword='fenfun') }}">Maison Fenfun</a></h2>
+								<p>'分方（maison fenfun）是一个宣扬环保与快乐理念的品牌。分方取芬芳之音意，旨在分享传播分方之美，以及快乐生活的真谛。' <a href="https://www.zhihu.com/question/297199780">More...</a></p>
+							</li>
+						</ul>
+			</div>
+		</div>
+	</div>
+	<div style="clear: both;">&nbsp;</div>
+</div>
+<hr />
+<div id="footer">
+	<p>Copyright &copy; Year All Rights Reserved. Designed by [Something].</p>
+</div>
+</body>
+</html>
